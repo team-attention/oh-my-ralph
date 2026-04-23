@@ -1,0 +1,6 @@
+# Ralph loop configuration
+# Consumed by backends that read it; otherwise advisory for the agent.
+
+max_iterations=20
+stop_on_success=true
+log_dir=.ralph/logs

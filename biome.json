@@ -1,9 +1,0 @@
-{
-  "formatter": {
-    "indentStyle": "tab",
-    "lineWidth": 100
-  },
-  "linter": {
-    "enabled": true
-  }
-}

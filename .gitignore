@@ -1,3 +1,2 @@
-node_modules/
-dist/
-.omr/
+.ralph/logs/
+.DS_Store
