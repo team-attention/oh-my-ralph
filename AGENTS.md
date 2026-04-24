@@ -34,6 +34,33 @@ Backend-specific setup expectations:
 - OpenCode / OmO: install the published `oh-my-opencode` package; if that fails, follow the upstream installation guide in `.ralph/prompts/install.md`. Verify with `command -v oh-my-opencode` and `oh-my-opencode doctor`, then run `oh-my-opencode install` inside your project to register the plugin. Note: `ultrawork` / `ulw` are in-session OpenCode keywords, not PATH binaries.
 - Ouroboros: install from PyPI (`pipx install ouroboros-ai` or `uv tool install ouroboros-ai`) — there is no npm package. Verify `ouroboros` or `ooo`.
 
+## Step 2.5 — Visual Spec (Codex 권장)
+
+`RALPH.md` 옆에 **`RALPH.png`** 가 같이 있어야 ralph 가 헛돌지 않습니다.
+- `RALPH.md` = 검증 가능한 텍스트 계약
+- `RALPH.png` = 한눈에 이해 가능한 시각 계약 (제품의 목표 상태 — 화면/흐름/상태/사용 결과)
+
+**Codex 사용 시** — Plan mode 에서 동봉된 스킬을 사용하세요:
+
+```text
+$clarify-image
+```
+
+스킬 위치: `.codex/skills/clarify-image/` (이 repo 안에 동봉, canonical 경로는 `.claude/skills/clarify-image/`).
+
+clarify-image 가 자동으로 진행하는 순서:
+1. 제품 의도 / 사용자 / 범위의 모호성을 좁히는 질문 (스타일 질문 금지)
+2. `request_user_input` 으로 2–3개 선택지 제시 → 선택 → 시각 가설 → 이미지 생성
+3. 생성된 이미지를 보고 misunderstanding + expansion 피드백 → 충분히 좁혀지면 `RALPH.png` 로 저장
+
+**금지 사항**:
+- Ralph loop / Codex / agent 구조도, 로고, 마스코트는 RALPH.png 가 아닙니다.
+- 스타일/카메라/레이아웃 같은 craft 질문보다 **제품 스펙 질문** 을 먼저 합니다.
+
+OMC / OmO / Ouroboros 사용자도 동일한 결과물을 만들 수 있으면 OK — 도구는 자유, 산출물(`RALPH.png` 가 제품 목표 상태) 만 맞추면 됩니다.
+
+---
+
 ## Step 3 — Onboard the user (Socratic mini-interview)
 
 `RALPH.md` 는 6개 섹션입니다 — **Task / Context / Constraints / Success Criteria / Risks & Unknowns / Verification Commands**. 이 6개를 채우는 짧은 Socratic 인터뷰를 진행하세요.

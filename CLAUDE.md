@@ -33,6 +33,21 @@ bash .ralph/bootstrap.sh omc
 If `omc` is already installed, the script is a no-op. Do not reinstall. If the
 script fails, run `bash .ralph/check.sh` and report the output.
 
+## Step 2.5 — Visual Spec
+
+`RALPH.md` 옆에 **`RALPH.png`** 가 같이 있으면 ralph 가 훨씬 정확합니다.
+- `RALPH.md` = 검증 가능한 텍스트 계약
+- `RALPH.png` = 한눈에 이해 가능한 시각 계약 (제품 목표 상태 — 화면/흐름/상태/사용 결과)
+
+Claude Code 안에서 직접 이미지 생성을 권장하지는 않습니다. **Codex Plan mode + `$clarify-image` 스킬** 로 만든 후 다시 Claude Code 로 돌아오는 흐름을 안내하세요. 스킬은 `.codex/skills/clarify-image/` 에 동봉되어 있습니다 (canonical: `.claude/skills/clarify-image/`).
+
+만약 사용자가 Claude Code 안에서 끝까지 진행하길 원하면, Imagen / DALL·E / Sora 같은 외부 생성기를 사용하도록 안내하되 다음 룰을 강제하세요:
+- 제품의 **목표 상태** (화면/흐름/상태/사용 결과) 만 그릴 것
+- Ralph loop / Codex / agent 다이어그램, 로고, 마스코트는 금지
+- 스타일 질문 전에 **제품 스펙 질문** 을 먼저
+
+---
+
 ## Step 3 — Onboard the user (Socratic mini-interview)
 
 `RALPH.md` 는 6개 섹션입니다 — **Task / Context / Constraints / Success Criteria / Risks & Unknowns / Verification Commands**. 이 6개를 채우는 짧은 Socratic 인터뷰를 진행하세요.

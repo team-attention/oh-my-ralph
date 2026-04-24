@@ -1,0 +1,7 @@
+interface:
+  display_name: "Clarify Image"
+  short_description: "Choice-led visual idea clarifier"
+  default_prompt: "Use $clarify-image in Plan mode to ask me structured choices and visualize my idea."
+
+policy:
+  allow_implicit_invocation: true

@@ -56,7 +56,12 @@ Instead of building yet another wrapper on top, this repo is **a README your age
 oh-my-ralph/
 ├── CLAUDE.md              # Bootstrap for Claude Code
 ├── AGENTS.md              # Bootstrap for Codex / OpenCode
-├── RALPH.md               # Your spec (fill this in)
+├── RALPH.md               # Your spec (fill this in — text contract)
+├── RALPH.png              # Optional but recommended — visual contract (generate via Codex $clarify-image)
+├── .claude/skills/        # Project-bundled skills (canonical)
+│   └── clarify-image/     # Codex Plan-mode skill for generating RALPH.png
+├── .codex/skills/         # Codex symlinks → .claude/skills/
+├── .agents/skills/        # Other-agent symlinks → .claude/skills/
 ├── .ralph/
 │   ├── bootstrap.sh       # Backend installer
 │   ├── check.sh           # Environment diagnostic
@@ -70,7 +75,25 @@ oh-my-ralph/
     └── refactor.md
 ```
 
-## Spec format (RALPH.md)
+## Spec format (RALPH.md + RALPH.png)
+
+A complete spec is **two files** that read together:
+
+- `RALPH.md` — verifiable **text contract** (6 sections below).
+- `RALPH.png` — at-a-glance **visual contract** of the product's goal state
+  (screens / flow / states / usage outcome). **Not** a Ralph-loop / Codex / agent
+  diagram, logo, or mascot.
+
+Generate `RALPH.png` from inside **Codex Plan mode** with the bundled skill:
+
+```text
+$clarify-image
+```
+
+The skill ships in this repo at `.codex/skills/clarify-image/` (canonical:
+`.claude/skills/clarify-image/`). It asks product-spec questions first
+(intent / users / scope), not style questions, then converts the answers into
+an image preview through `request_user_input`.
 
 `RALPH.md` has **6 sections**. The two on the right are what stops ralph from
 lying about completion — don't skip them.
