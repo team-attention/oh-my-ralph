@@ -4,3 +4,9 @@
 max_iterations=20
 stop_on_success=true
 log_dir=.ralph/logs
+
+# Timebox — wall-clock cap enforced by .ralph/run.sh when used as the launcher.
+# Accepts seconds (900), or h/m/s suffixes (15m, 1h, 1h30m, 30s).
+# 0 or unset = disabled. The wrapper exits 124 on timeout (GNU timeout convention).
+# Does NOT apply to in-session handoffs (OMC /ralph, OmO /ralph-loop inside TUI).
+max_wall_seconds=0
