@@ -61,6 +61,27 @@ OMC / OmO / Ouroboros 사용자도 동일한 결과물을 만들 수 있으면 O
 
 ---
 
+## Step 2.6 — Codex `/goal` Prep (optional)
+
+Codex 런타임에서는 장기 작업을 시작하기 전에 native `/goal` 을 쓸 수 있습니다. 이 기능은 Ralph/OMX 를 대체하지 않습니다. `RALPH.md` 를 채운 뒤, 긴 작업이 중간에 끊기거나 여러 turn 으로 이어질 가능성이 높을 때 목표를 thread-level 로 고정하는 보조 장치입니다.
+
+공식 Codex app-server 문서 기준으로 `thread/goal/set`, `thread/goal/get`, `thread/goal/clear` 는 experimental API 입니다. upstream `openai/codex` goal-mode PR 시리즈 기준으로 `/goal` 은 persistence, app-server API, model-facing tools, runtime continuation, TUI UX 로 구성됩니다.
+
+Codex 사용자가 `/goal` 을 원하면 `.ralph/prompts/codex-goal.md` 를 읽고, outcome-first 목표를 하나 작성하게 하세요. 좋은 목표는 다음을 포함합니다:
+- clear outcome
+- success criteria
+- constraints
+- retrieval/search budget where relevant
+- validation loop
+- stop rules
+
+주의:
+- ordinary task request 에서 goal 을 임의로 추론하지 마세요. 사용자가 `/goal` 또는 장기 목표 설정을 명시할 때만 안내합니다.
+- 같은 thread 에 이미 goal 이 있으면 사용자가 `/goal clear`, `/goal pause`, `/goal unpause`, 또는 replacement confirmation 을 직접 처리해야 할 수 있습니다.
+- slash-command token budget 을 문서화하지 마세요. budget 은 API/tool-created goal 에서 표시될 수 있지만 TUI help 에 노출하는 주요 handoff가 아닙니다.
+
+---
+
 ## Step 3 — Onboard the user (Socratic mini-interview)
 
 `RALPH.md` 는 6개 섹션입니다 — **Task / Context / Constraints / Success Criteria / Risks & Unknowns / Verification Commands**. 이 6개를 채우는 짧은 Socratic 인터뷰를 진행하세요.

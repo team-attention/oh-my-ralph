@@ -143,6 +143,28 @@ keeps "looks done" from passing as "is done."
 
 Browse [`examples/`](./examples/) for the full set, including simpler `todo-app.md` / `fix-bug.md` / `refactor.md`.
 
+## Codex `/goal` prep
+
+Codex now has a native experimental goal surface for long-running thread-level
+work. Use it as a complement to `RALPH.md`: Ralph describes the target contract,
+while `/goal` keeps Codex anchored to the current long-running outcome inside a
+Codex thread.
+
+Best use cases:
+
+- multi-step implementation or migration work
+- regression fixes that need root cause, patch, test, and validation to stay tied
+  together
+- frontend tasks that should end with browser checks
+- source-grounded research where retrieval needs an explicit stop rule
+
+The prompt should be outcome-first: name the result, success criteria,
+constraints, search/retrieval budget, validation loop, and stop rules. Avoid
+turning `/goal` into a vague "keep improving" instruction.
+
+See [`.ralph/prompts/codex-goal.md`](./.ralph/prompts/codex-goal.md) for
+researched notes and five copy-paste `/goal` templates.
+
 ## Use as a GitHub Template
 
 Click **"Use this template"** at the top of this repo → new repo with everything preinstalled. Then open your agent inside the clone and paste the prompt above.
