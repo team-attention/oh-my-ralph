@@ -59,7 +59,8 @@ oh-my-ralph/
 ├── RALPH.md               # Your spec (fill this in — text contract)
 ├── RALPH.png              # Optional but recommended — visual contract (generate via Codex $clarify-image)
 ├── .claude/skills/        # Project-bundled skills (canonical)
-│   └── clarify-image/     # Codex Plan-mode skill for generating RALPH.png
+│   ├── clarify-image/     # Codex Plan-mode skill for generating RALPH.png
+│   └── shape-goal/        # Convert RALPH.md (or fuzzy intent) into a terminating /goal
 ├── .codex/skills/         # Codex symlinks → .claude/skills/
 ├── .agents/skills/        # Other-agent symlinks → .claude/skills/
 ├── .ralph/
@@ -163,7 +164,11 @@ constraints, search/retrieval budget, validation loop, and stop rules. Avoid
 turning `/goal` into a vague "keep improving" instruction.
 
 See [`.ralph/prompts/codex-goal.md`](./.ralph/prompts/codex-goal.md) for
-researched notes and five copy-paste `/goal` templates.
+researched notes and five copy-paste `/goal` templates, or invoke the
+[`shape-goal`](./.claude/skills/shape-goal/SKILL.md) skill to auto-convert a
+`RALPH.md` (or a fuzzy intent) into an outcome-first `/goal` with stop rule,
+proxy policy, and seeded memory files (`PLAN.md` / `EXPERIMENT_NOTES.md` /
+`EXPERIMENTS.md`).
 
 ## Use as a GitHub Template
 

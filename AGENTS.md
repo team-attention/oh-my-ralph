@@ -67,7 +67,7 @@ Codex 런타임에서는 장기 작업을 시작하기 전에 native `/goal` 을
 
 공식 Codex app-server 문서 기준으로 `thread/goal/set`, `thread/goal/get`, `thread/goal/clear` 는 experimental API 입니다. upstream `openai/codex` goal-mode PR 시리즈 기준으로 `/goal` 은 persistence, app-server API, model-facing tools, runtime continuation, TUI UX 로 구성됩니다.
 
-Codex 사용자가 `/goal` 을 원하면 `.ralph/prompts/codex-goal.md` 를 읽고, outcome-first 목표를 하나 작성하게 하세요. 좋은 목표는 다음을 포함합니다:
+Codex 사용자가 `/goal` 을 원하면 가능하면 `.claude/skills/shape-goal/` 스킬을 invoke 해서 자동으로 outcome-first goal 을 빚어내세요. 스킬은 RALPH.md 를 읽고 네 가지 체크(Outcome / Stop / Proxy / Memory)를 거쳐 종료 가능한 `/goal` 을 emit 하고, 옆에 `PLAN.md` / `EXPERIMENT_NOTES.md` / `EXPERIMENTS.md` 를 seed 합니다. 스킬을 쓸 수 없으면 `.ralph/prompts/codex-goal.md` 를 읽고 사용자가 직접 outcome-first 목표를 하나 작성하게 하세요. 좋은 목표는 다음을 포함합니다:
 - clear outcome
 - success criteria
 - constraints
